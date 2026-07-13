@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Smart Navigation{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced.css') }}" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<div class="container-fluid mt-4">
+    <div class="row">
+        <!-- Control Panel -->
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5><i class="fas fa-route"></i> Route Planner</h5>
+                </div>
+                <div class="card-body">
+                    <form id="routeForm">
+                        <div class="mb-3">
+                            <label class="form-label">Source Location</label>
+                            <input type="text" class="form-control" id="source" placeholder="Enter source" required>
+                            <small class="text-muted">Lat: <span id="sourceLat">28.6139</span>, Lng: <span id="sourceLng">77.2090</span></small>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Destination Location</label>
+                            <input type="text" class="form-control" id="destination" placeholder="Enter destination" required>
+                            <small class="text-muted">Lat: <span id="destLat">28.6200</span>, Lng: <span id="destLng">77.2150</span></small>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">User Type</label>
+                            <select class="form-select" id="userType" required>
+                                <option value="wheelchair">Wheelchair User</option>
+                                <option value="visually_impaired">Visually Impaired</option>
+                                <option value="elderly">Elderly</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-search"></i> Find Routes
+                        </button>
+                    </form>
+                    
+                    <hr>
+                    
+                    <!-- Route Results -->
+                    <div id="routeResults"></div>
+                    
+                    <!-- Voice Navigation Controls -->
+                    <div id="voiceControls" style="display:none;" class="mt-3">
+                        <h6>Voice Navigation</h6>
+                        <button class="btn btn-success btn-sm w-100 mb-2" id="startVoice">
+                            <i class="fas fa-volume-up"></i> Start Voice Guide
+                        </button>
+                        <button class="btn btn-danger btn-sm w-100" id="stopVoice">
+                            <i class="fas fa-stop"></i> Stop Voice
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nearby Facilities -->
+            <div class="card mt-3">
+                <div class="card-header bg-info text-white">
+                    <h6><i class="fas fa-hospital"></i> Nearby Facilities</h6>
+                </div>
+                <div class="card-body" id="nearbyFacilities">
+                    <p class="text-muted">Select a route to view nearby facilities</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Map Container -->
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body p-0">
+                    <div id="map" style="height: 600px;"></div>
+                </div>
+            </div>
+            
+            <!-- Route Legend -->
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h6>Route Legend</h6>
+                    <div class="d-flex gap-3">
+                        <span><i class="fas fa-circle" style="color:#28a745"></i> Safe Route (80-100)</span>
+                        <span><i class="fas fa-circle" style="color:#ffc107"></i> Moderate Route (60-79)</span>
+                        <span><i class="fas fa-circle" style="color:#dc3545"></i> Risky Route (<60)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
+{% endblock %}

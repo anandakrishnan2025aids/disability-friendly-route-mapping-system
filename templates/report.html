@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block title %}Report Accessibility Issue — AccessRoute{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/report.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div class="report-page">
+    <div class="report-hero">
+        <div class="report-hero-text">
+            <h1>Report an Accessibility Issue</h1>
+            <p>Help make the city safer and more accessible for everyone. Your report is reviewed and added to the live map within 24 hours.</p>
+        </div>
+    </div>
+
+    <div class="report-layout">
+        <div class="report-form-wrap">
+            <div class="form-card" id="reportFormCard">
+                <div class="form-steps">
+                    <div class="step active" data-step="1"><span>1</span> Details</div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="2"><span>2</span> Location</div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="3"><span>3</span> Submit</div>
+                </div>
+
+                <form id="reportForm">
+                    <!-- Step 1 -->
+                    <div class="form-step" id="step1">
+                        <h3>Describe the Issue</h3>
+                        <div class="form-group">
+                            <label>Issue Type <span class="req">*</span></label>
+                            <div class="issue-types">
+                                <label class="issue-type-card">
+                                    <input type="radio" name="issue_type" value="broken_ramp" />
+                                    <span>🚧</span> Broken Ramp
+                                </label>
+                                <label class="issue-type-card">
+                                    <input type="radio" name="issue_type" value="blocked_path" />
+                                    <span>🚫</span> Blocked Path
+                                </label>
+                                <label class="issue-type-card">
+                                    <input type="radio" name="issue_type" value="missing_curb" />
+                                    <span>⬇️</span> Missing Curb Cut
+                                </label>
+                                <label class="issue-type-card">
+                                    <input type="radio" name="issue_type" value="broken_signal" />
+                                    <span>🔇</span> Broken Audio Signal
+                                </label>
+                                <label class="issue-type-card">
+                                    <input type="radio" name="issue_type" value="poor_surface" />
+                                    <span>🪨</span> Poor Surface
+                                </label>
+                                <label class="issue-type-card">
+                                    <input type="radio" name="issue_type" value="other" />
+                                    <span>❓</span> Other
+                                </label>
+                            </div>
+                            <div class="field-error" id="issueTypeError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Issue Title <span class="req">*</span></label>
+                            <input type="text" id="title" name="title" placeholder="e.g. Ramp blocked by parked car on Main St" maxlength="120" />
+                            <div class="field-error" id="titleError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description <span class="req">*</span></label>
+                            <textarea id="description" name="description" rows="4" placeholder="Describe the issue in detail. What makes it a problem? When did you notice it?"></textarea>
+                            <div class="field-error" id="descriptionError"></div>
+                        </div>
+                        <!-- Image Upload + Auto Detection -->
+                        <div class="form-group">
+                            <label>Upload Photo <span class="optional">(optional — AI will auto-detect issue)</span></label>
+                            <div class="upload-zone" id="uploadZone">
+                                <input type="file" id="imageInput" accept="image/*" hidden />
+                                <div class="upload-placeholder" id="uploadPlaceholder">
+                                    <div class="upload-icon">📷</div>
+                                    <div class="upload-text">Drag & drop a photo here, or <span class="upload-link" onclick="document.getElementById('imageInput').click()">browse</span></div>
+                                    <div class="upload-hint">JPG, PNG, WEBP up to 10 MB</div>
+                                </div>
+                                <div class="upload-preview hidden" id="uploadPreview">
+                                    <img id="previewImg" src="" alt="Preview" />
+                                    <button type="button" class="upload-remove" onclick="removeImage()">✕ Remove</button>
+                                </div>
+                            </div>
+                            <div class="detection-result hidden" id="detectionResult"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Severity</label>
+                            <div class="severity-options">
+                                <label class="severity-opt low"><input type="radio" name="severity" value="low" /> Low</label>
+                                <label class="severity-opt medium"><input type="radio" name="severity" value="medium" checked /> Medium</label>
+                                <label class="severity-opt high"><input type="radio" name="severity" value="high" /> High</label>
+                                <label class="severity-opt critical"><input type="radio" name="severity" value="critical" /> Critical</label>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="goToStep(2)">Next: Add Location →</button>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="form-step hidden" id="step2">
+                        <h3>Where is the Issue?</h3>
+                        <div class="form-group">
+                            <label for="location">Street Address / Landmark <span class="req">*</span></label>
+                            <input type="text" id="location" name="location" placeholder="e.g. Near Gandhipuram Bus Stand, Coimbatore" />
+                            <div class="field-error" id="locationError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Pin on Map <span class="optional">(optional)</span></label>
+                            <div id="reportMap"></div>
+                            <p class="map-hint">Click on the map to drop a pin at the exact location.</p>
+                            <div class="coords-display" id="coordsDisplay"></div>
+                        </div>
+                        <div class="step-actions">
+                            <button type="button" class="btn btn-outline" onclick="goToStep(1)">← Back</button>
+                            <button type="button" class="btn btn-primary" onclick="goToStep(3)">Next: Review →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="form-step hidden" id="step3">
+                        <h3>Review & Submit</h3>
+                        <div class="review-box" id="reviewBox"></div>
+                        <div class="step-actions">
+                            <button type="button" class="btn btn-outline" onclick="goToStep(2)">← Back</button>
+                            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                                <span class="submit-text">Submit Report</span>
+                                <span class="submit-loader hidden">Submitting…</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success State -->
+            <div class="success-card hidden" id="successCard">
+                <div class="success-icon">✅</div>
+                <h2>Report Submitted!</h2>
+                <p>Thank you — your report has been added to the community map. Our team will review it within 24 hours.</p>
+                <div class="success-actions">
+                    <a href="/map" class="btn btn-primary">View on Map →</a>
+                    <button class="btn btn-outline" onclick="resetForm()">Report Another Issue</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="reports-panel">
+            <h3>Recent Community Reports</h3>
+            <div id="recentReports"><div class="loading-spinner">Loading…</div></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{{ url_for('static', filename='js/report.js') }}"></script>
+{% endblock %}

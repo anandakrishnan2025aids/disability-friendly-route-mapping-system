@@ -1,0 +1,447 @@
+/* ═══════════════════════════════════════════════════════════════════
+   ACCESSIBLE COLOR SYSTEM - DISABILITY FRIENDLY ROUTE MAPPING
+   Following WCAG 2.1 Level AAA Guidelines
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+    /* ═══════════════════════════════════════════════════════════════
+       DARK THEME (DEFAULT) - Deep Navy Base
+       ═══════════════════════════════════════════════════════════════ */
+    
+    /* Base Colors - Deep Navy Background */
+    --bg-primary: #060b18;           /* Main background - Deep navy */
+    --bg-secondary: #0d1425;         /* Secondary background */
+    --bg-tertiary: #141d35;          /* Elevated surfaces */
+    --bg-elevated: #1a2642;          /* Cards, modals */
+    --bg-hover: #1f2d4a;             /* Hover states */
+    
+    /* Surface Colors */
+    --surface: #0d1425;              /* Card backgrounds */
+    --surface-2: #141d35;            /* Elevated cards */
+    --surface-3: #1a2642;            /* Higher elevation */
+    --surface-dim: rgba(13, 20, 37, 0.6);  /* Transparent surfaces */
+    
+    /* Border Colors */
+    --border-primary: #1f2d4a;       /* Default borders */
+    --border-secondary: #2a3a5a;     /* Subtle borders */
+    --border-focus: #10e8b8;         /* Focus indicators */
+    --border-error: #ff5c7a;         /* Error borders */
+    
+    /* Text Colors - High Contrast */
+    --text-primary: #e8eeff;         /* Main text - WCAG AAA */
+    --text-secondary: #b8c5e0;       /* Secondary text */
+    --text-tertiary: #7a8aaa;        /* Muted text */
+    --text-dim: #5a6a8a;             /* Disabled text */
+    --text-inverse: #060b18;         /* Text on light backgrounds */
+    
+    /* ═══════════════════════════════════════════════════════════════
+       ACCESSIBLE ACCENT COLORS - Semantic Meaning
+       ═══════════════════════════════════════════════════════════════ */
+    
+    /* Success/Safe - Soft Green (Accessible Routes) */
+    --success: #10e8b8;              /* Primary success color */
+    --success-light: #3dffd4;        /* Lighter variant */
+    --success-dark: #0db896;         /* Darker variant */
+    --success-bg: rgba(16, 232, 184, 0.12);  /* Background tint */
+    --success-border: rgba(16, 232, 184, 0.28);  /* Border color */
+    --success-text: #10e8b8;         /* Text color */
+    
+    /* Warning - Muted Orange/Yellow (Caution) */
+    --warning: #ffc35a;              /* Primary warning color */
+    --warning-light: #ffd68a;        /* Lighter variant */
+    --warning-dark: #e6a840;         /* Darker variant */
+    --warning-bg: rgba(255, 195, 90, 0.12);  /* Background tint */
+    --warning-border: rgba(255, 195, 90, 0.28);  /* Border color */
+    --warning-text: #ffc35a;         /* Text color */
+    
+    /* Error/Danger - Soft Red (Blocked/Inaccessible) */
+    --error: #ff5c7a;                /* Primary error color */
+    --error-light: #ff8c9e;          /* Lighter variant */
+    --error-dark: #e64060;           /* Darker variant */
+    --error-bg: rgba(255, 92, 122, 0.12);  /* Background tint */
+    --error-border: rgba(255, 92, 122, 0.28);  /* Border color */
+    --error-text: #ff5c7a;           /* Text color */
+    
+    /* Info - Soft Blue (Information) */
+    --info: #5b9dff;                 /* Primary info color */
+    --info-light: #8bb9ff;           /* Lighter variant */
+    --info-dark: #4080e6;            /* Darker variant */
+    --info-bg: rgba(91, 157, 255, 0.12);  /* Background tint */
+    --info-border: rgba(91, 157, 255, 0.28);  /* Border color */
+    --info-text: #5b9dff;            /* Text color */
+    
+    /* Moderate - Purple (Moderate Accessibility) */
+    --moderate: #c084fc;             /* Primary moderate color */
+    --moderate-light: #d8a8ff;       /* Lighter variant */
+    --moderate-dark: #a060e6;        /* Darker variant */
+    --moderate-bg: rgba(192, 132, 252, 0.12);  /* Background tint */
+    --moderate-border: rgba(192, 132, 252, 0.28);  /* Border color */
+    --moderate-text: #c084fc;        /* Text color */
+    
+    /* ═══════════════════════════════════════════════════════════════
+       ROUTE COLORS - Accessibility Indicators
+       ═══════════════════════════════════════════════════════════════ */
+    
+    /* Safe Route - Green */
+    --route-safe: #10e8b8;           /* Safe/accessible route */
+    --route-safe-glow: rgba(16, 232, 184, 0.3);  /* Glow effect */
+    
+    /* Moderate Route - Yellow/Orange */
+    --route-moderate: #ffc35a;       /* Moderate accessibility */
+    --route-moderate-glow: rgba(255, 195, 90, 0.3);  /* Glow effect */
+    
+    /* Risky Route - Red */
+    --route-risky: #ff5c7a;          /* Risky/inaccessible */
+    --route-risky-glow: rgba(255, 92, 122, 0.3);  /* Glow effect */
+    
+    /* ═══════════════════════════════════════════════════════════════
+       FACILITY COLORS - Map Markers
+       ═══════════════════════════════════════════════════════════════ */
+    
+    --facility-hospital: #f87171;    /* Hospital marker */
+    --facility-police: #60a5fa;      /* Police station marker */
+    --facility-ramp: #ff5c7a;        /* Wheelchair ramp */
+    --facility-toilet: #5b9dff;      /* Accessible toilet */
+    --facility-bench: #c084fc;       /* Rest bench */
+    --facility-audio: #ffc35a;       /* Audio signal */
+    --facility-parking: #22d3ee;     /* Accessible parking */
+    --facility-accessible: #a78bfa;  /* General accessible place */
+    
+    /* ═══════════════════════════════════════════════════════════════
+       BUTTON COLORS - Call to Action
+       ═══════════════════════════════════════════════════════════════ */
+    
+    /* Primary Button - Gradient (Success) */
+    --btn-primary-bg: linear-gradient(135deg, #10e8b8, #0db896);
+    --btn-primary-hover: linear-gradient(135deg, #3dffd4, #10e8b8);
+    --btn-primary-active: linear-gradient(135deg, #0db896, #0a9678);
+    --btn-primary-text: #060b18;     /* Dark text on bright button */
+    --btn-primary-shadow: 0 4px 16px rgba(16, 232, 184, 0.3);
+    
+    /* Secondary Button - Muted */
+    --btn-secondary-bg: #1a2642;
+    --btn-secondary-hover: #1f2d4a;
+    --btn-secondary-active: #141d35;
+    --btn-secondary-text: #10e8b8;
+    --btn-secondary-border: #2a3a5a;
+    
+    /* Danger Button - Red */
+    --btn-danger-bg: linear-gradient(135deg, #ff5c7a, #e64060);
+    --btn-danger-hover: linear-gradient(135deg, #ff8c9e, #ff5c7a);
+    --btn-danger-active: linear-gradient(135deg, #e64060, #cc3050);
+    --btn-danger-text: #ffffff;
+    --btn-danger-shadow: 0 4px 16px rgba(255, 92, 122, 0.3);
+    
+    /* Warning Button - Orange */
+    --btn-warning-bg: linear-gradient(135deg, #ffc35a, #e6a840);
+    --btn-warning-hover: linear-gradient(135deg, #ffd68a, #ffc35a);
+    --btn-warning-active: linear-gradient(135deg, #e6a840, #cc9030);
+    --btn-warning-text: #060b18;
+    --btn-warning-shadow: 0 4px 16px rgba(255, 195, 90, 0.3);
+    
+    /* Disabled Button */
+    --btn-disabled-bg: #1a2642;
+    --btn-disabled-text: #5a6a8a;
+    --btn-disabled-border: #1f2d4a;
+    
+    /* ═══════════════════════════════════════════════════════════════
+       GRADIENTS & EFFECTS
+       ═══════════════════════════════════════════════════════════════ */
+    
+    --gradient-primary: linear-gradient(135deg, #10e8b8, #0db896);
+    --gradient-success: linear-gradient(135deg, #10e8b8, #3dffd4);
+    --gradient-warning: linear-gradient(135deg, #ffc35a, #ff8c5a);
+    --gradient-error: linear-gradient(135deg, #ff5c7a, #ff8c5a);
+    --gradient-info: linear-gradient(135deg, #5b9dff, #8bb9ff);
+    --gradient-moderate: linear-gradient(135deg, #c084fc, #a060e6);
+    
+    /* Glow Effects */
+    --glow-success: 0 0 20px rgba(16, 232, 184, 0.4);
+    --glow-warning: 0 0 20px rgba(255, 195, 90, 0.4);
+    --glow-error: 0 0 20px rgba(255, 92, 122, 0.4);
+    --glow-info: 0 0 20px rgba(91, 157, 255, 0.4);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+    
+    /* ═══════════════════════════════════════════════════════════════
+       ACCESSIBILITY FEATURES
+       ═══════════════════════════════════════════════════════════════ */
+    
+    /* Focus Indicators - High Visibility */
+    --focus-ring: 0 0 0 3px rgba(16, 232, 184, 0.5);
+    --focus-ring-error: 0 0 0 3px rgba(255, 92, 122, 0.5);
+    --focus-ring-warning: 0 0 0 3px rgba(255, 195, 90, 0.5);
+    
+    /* Selection Colors */
+    --selection-bg: rgba(16, 232, 184, 0.3);
+    --selection-text: #e8eeff;
+    
+    /* Link Colors */
+    --link-default: #5b9dff;
+    --link-hover: #8bb9ff;
+    --link-visited: #c084fc;
+    --link-active: #10e8b8;
+    
+    /* ═══════════════════════════════════════════════════════════════
+       SPACING & SIZING
+       ═══════════════════════════════════════════════════════════════ */
+    
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+    --radius-full: 9999px;
+    
+    /* ═══════════════════════════════════════════════════════════════
+       TYPOGRAPHY
+       ═══════════════════════════════════════════════════════════════ */
+    
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Poppins', 'Inter', sans-serif;
+    --font-mono: 'Fira Code', 'Courier New', monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LIGHT THEME - Optional Alternative
+   ═══════════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] {
+    /* Base Colors - Light Background */
+    --bg-primary: #f8f9fc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f0f2f8;
+    --bg-elevated: #ffffff;
+    --bg-hover: #e8ebf5;
+    
+    /* Surface Colors */
+    --surface: #ffffff;
+    --surface-2: #f8f9fc;
+    --surface-3: #f0f2f8;
+    --surface-dim: rgba(255, 255, 255, 0.9);
+    
+    /* Border Colors */
+    --border-primary: #d8dce8;
+    --border-secondary: #e8ebf5;
+    --border-focus: #0db896;
+    --border-error: #e64060;
+    
+    /* Text Colors */
+    --text-primary: #1a2642;
+    --text-secondary: #3a4a6a;
+    --text-tertiary: #5a6a8a;
+    --text-dim: #8a9ab8;
+    --text-inverse: #ffffff;
+    
+    /* Accent Colors - Adjusted for Light Background */
+    --success: #0db896;
+    --success-light: #10e8b8;
+    --success-dark: #0a9678;
+    --success-bg: rgba(13, 184, 150, 0.1);
+    --success-border: rgba(13, 184, 150, 0.3);
+    
+    --warning: #e6a840;
+    --warning-light: #ffc35a;
+    --warning-dark: #cc9030;
+    --warning-bg: rgba(230, 168, 64, 0.1);
+    --warning-border: rgba(230, 168, 64, 0.3);
+    
+    --error: #e64060;
+    --error-light: #ff5c7a;
+    --error-dark: #cc3050;
+    --error-bg: rgba(230, 64, 96, 0.1);
+    --error-border: rgba(230, 64, 96, 0.3);
+    
+    --info: #4080e6;
+    --info-light: #5b9dff;
+    --info-dark: #3060cc;
+    --info-bg: rgba(64, 128, 230, 0.1);
+    --info-border: rgba(64, 128, 230, 0.3);
+    
+    /* Button Colors - Light Theme */
+    --btn-primary-text: #ffffff;
+    --btn-secondary-bg: #f0f2f8;
+    --btn-secondary-hover: #e8ebf5;
+    --btn-secondary-text: #0db896;
+    
+    /* Shadows - Softer for Light Theme */
+    --shadow-sm: 0 2px 8px rgba(26, 38, 66, 0.08);
+    --shadow-md: 0 4px 16px rgba(26, 38, 66, 0.12);
+    --shadow-lg: 0 8px 32px rgba(26, 38, 66, 0.16);
+    --shadow-xl: 0 16px 48px rgba(26, 38, 66, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   HIGH CONTRAST THEME - Maximum Accessibility
+   ═══════════════════════════════════════════════════════════════════ */
+
+[data-theme="high-contrast"] {
+    /* Base Colors - Pure Black & White */
+    --bg-primary: #000000;
+    --bg-secondary: #0a0a0a;
+    --bg-tertiary: #141414;
+    --bg-elevated: #1a1a1a;
+    --bg-hover: #242424;
+    
+    /* Surface Colors */
+    --surface: #0a0a0a;
+    --surface-2: #141414;
+    --surface-3: #1a1a1a;
+    --surface-dim: rgba(10, 10, 10, 0.95);
+    
+    /* Border Colors - High Contrast */
+    --border-primary: #ffffff;
+    --border-secondary: #cccccc;
+    --border-focus: #00ff00;
+    --border-error: #ff0000;
+    
+    /* Text Colors - Maximum Contrast */
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --text-tertiary: #cccccc;
+    --text-dim: #999999;
+    --text-inverse: #000000;
+    
+    /* Accent Colors - High Contrast Variants */
+    --success: #00ff00;
+    --success-light: #66ff66;
+    --success-dark: #00cc00;
+    --success-bg: rgba(0, 255, 0, 0.2);
+    --success-border: rgba(0, 255, 0, 0.5);
+    
+    --warning: #ffff00;
+    --warning-light: #ffff66;
+    --warning-dark: #cccc00;
+    --warning-bg: rgba(255, 255, 0, 0.2);
+    --warning-border: rgba(255, 255, 0, 0.5);
+    
+    --error: #ff0000;
+    --error-light: #ff6666;
+    --error-dark: #cc0000;
+    --error-bg: rgba(255, 0, 0, 0.2);
+    --error-border: rgba(255, 0, 0, 0.5);
+    
+    --info: #00ccff;
+    --info-light: #66ddff;
+    --info-dark: #0099cc;
+    --info-bg: rgba(0, 204, 255, 0.2);
+    --info-border: rgba(0, 204, 255, 0.5);
+    
+    /* Route Colors - High Contrast */
+    --route-safe: #00ff00;
+    --route-moderate: #ffff00;
+    --route-risky: #ff0000;
+    
+    /* Button Colors - High Contrast */
+    --btn-primary-bg: #00ff00;
+    --btn-primary-hover: #66ff66;
+    --btn-primary-text: #000000;
+    
+    --btn-danger-bg: #ff0000;
+    --btn-danger-hover: #ff6666;
+    --btn-danger-text: #ffffff;
+    
+    --btn-warning-bg: #ffff00;
+    --btn-warning-hover: #ffff66;
+    --btn-warning-text: #000000;
+    
+    /* Focus Indicators - Maximum Visibility */
+    --focus-ring: 0 0 0 4px #00ff00;
+    --focus-ring-error: 0 0 0 4px #ff0000;
+    --focus-ring-warning: 0 0 0 4px #ffff00;
+    
+    /* Shadows - Stronger for High Contrast */
+    --shadow-sm: 0 2px 8px rgba(255, 255, 255, 0.2);
+    --shadow-md: 0 4px 16px rgba(255, 255, 255, 0.3);
+    --shadow-lg: 0 8px 32px rgba(255, 255, 255, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   COLOR BLIND FRIENDLY ADJUSTMENTS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Deuteranopia & Protanopia (Red-Green Color Blindness) */
+[data-colorblind="red-green"] {
+    --success: #0099ff;              /* Blue instead of green */
+    --route-safe: #0099ff;
+    --error: #ff6600;                /* Orange instead of red */
+    --route-risky: #ff6600;
+    --warning: #ffcc00;              /* Bright yellow */
+    --route-moderate: #ffcc00;
+}
+
+/* Tritanopia (Blue-Yellow Color Blindness) */
+[data-colorblind="blue-yellow"] {
+    --info: #ff66cc;                 /* Pink instead of blue */
+    --warning: #ff3366;              /* Red-pink instead of yellow */
+    --route-moderate: #ff3366;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SELECTION & INTERACTION STATES
+   ═══════════════════════════════════════════════════════════════════ */
+
+::selection {
+    background: var(--selection-bg);
+    color: var(--selection-text);
+}
+
+::-moz-selection {
+    background: var(--selection-bg);
+    color: var(--selection-text);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ACCESSIBILITY UTILITIES
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Skip to Main Content */
+.skip-to-main {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--success);
+    color: var(--text-inverse);
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    z-index: 9999;
+}
+
+.skip-to-main:focus {
+    top: 10px;
+    left: 10px;
+}
+
+/* Focus Visible - Keyboard Navigation */
+*:focus-visible {
+    outline: 3px solid var(--border-focus);
+    outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

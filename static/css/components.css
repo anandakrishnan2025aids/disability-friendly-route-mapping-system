@@ -1,0 +1,610 @@
+/* ═══════════════════════════════════════════════════════════════════
+   ACCESSIBLE UI COMPONENTS - Using Color System
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════════
+   BUTTONS - All States & Variants
+   ═══════════════════════════════════════════════════════════════════ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.5;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Primary Button - Success Green */
+.btn-primary {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    box-shadow: var(--btn-primary-shadow);
+}
+
+.btn-primary:hover {
+    background: var(--btn-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 232, 184, 0.4);
+}
+
+.btn-primary:active {
+    background: var(--btn-primary-active);
+    transform: translateY(0);
+}
+
+.btn-primary:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring), var(--btn-primary-shadow);
+}
+
+/* Secondary Button - Muted */
+.btn-secondary {
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+    border: 1px solid var(--btn-secondary-border);
+}
+
+.btn-secondary:hover {
+    background: var(--btn-secondary-hover);
+    border-color: var(--success);
+}
+
+.btn-secondary:active {
+    background: var(--btn-secondary-active);
+}
+
+/* Danger Button - Red */
+.btn-danger {
+    background: var(--btn-danger-bg);
+    color: var(--btn-danger-text);
+    box-shadow: var(--btn-danger-shadow);
+}
+
+.btn-danger:hover {
+    background: var(--btn-danger-hover);
+    transform: translateY(-2px);
+}
+
+.btn-danger:focus-visible {
+    box-shadow: var(--focus-ring-error), var(--btn-danger-shadow);
+}
+
+/* Warning Button - Orange */
+.btn-warning {
+    background: var(--btn-warning-bg);
+    color: var(--btn-warning-text);
+    box-shadow: var(--btn-warning-shadow);
+}
+
+.btn-warning:hover {
+    background: var(--btn-warning-hover);
+    transform: translateY(-2px);
+}
+
+.btn-warning:focus-visible {
+    box-shadow: var(--focus-ring-warning), var(--btn-warning-shadow);
+}
+
+/* Disabled Button */
+.btn:disabled,
+.btn-disabled {
+    background: var(--btn-disabled-bg);
+    color: var(--btn-disabled-text);
+    border-color: var(--btn-disabled-border);
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Button Sizes */
+.btn-sm {
+    padding: 0.375rem 0.875rem;
+    font-size: 0.75rem;
+}
+
+.btn-lg {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+}
+
+/* Icon Buttons */
+.btn-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border-radius: var(--radius-md);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CARDS - Surface Components
+   ═══════════════════════════════════════════════════════════════════ */
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--border-secondary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* Card Variants */
+.card-success {
+    border-left: 4px solid var(--success);
+    background: linear-gradient(to right, var(--success-bg), var(--surface));
+}
+
+.card-warning {
+    border-left: 4px solid var(--warning);
+    background: linear-gradient(to right, var(--warning-bg), var(--surface));
+}
+
+.card-error {
+    border-left: 4px solid var(--error);
+    background: linear-gradient(to right, var(--error-bg), var(--surface));
+}
+
+.card-info {
+    border-left: 4px solid var(--info);
+    background: linear-gradient(to right, var(--info-bg), var(--surface));
+}
+
+/* Elevated Card */
+.card-elevated {
+    background: var(--surface-2);
+    box-shadow: var(--shadow-md);
+}
+
+.card-elevated:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   BADGES - Status Indicators
+   ═══════════════════════════════════════════════════════════════════ */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    line-height: 1;
+}
+
+/* Success Badge */
+.badge-success {
+    background: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid var(--success-border);
+}
+
+/* Warning Badge */
+.badge-warning {
+    background: var(--warning-bg);
+    color: var(--warning-text);
+    border: 1px solid var(--warning-border);
+}
+
+/* Error Badge */
+.badge-error {
+    background: var(--error-bg);
+    color: var(--error-text);
+    border: 1px solid var(--error-border);
+}
+
+/* Info Badge */
+.badge-info {
+    background: var(--info-bg);
+    color: var(--info-text);
+    border: 1px solid var(--info-border);
+}
+
+/* Moderate Badge */
+.badge-moderate {
+    background: var(--moderate-bg);
+    color: var(--moderate-text);
+    border: 1px solid var(--moderate-border);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ALERTS - Notification Components
+   ═══════════════════════════════════════════════════════════════════ */
+
+.alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid;
+    margin-bottom: 1rem;
+}
+
+.alert-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.alert-content {
+    flex: 1;
+}
+
+.alert-title {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.alert-message {
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* Alert Variants */
+.alert-success {
+    background: var(--success-bg);
+    border-color: var(--success-border);
+    color: var(--text-primary);
+}
+
+.alert-success .alert-icon {
+    color: var(--success);
+}
+
+.alert-warning {
+    background: var(--warning-bg);
+    border-color: var(--warning-border);
+    color: var(--text-primary);
+}
+
+.alert-warning .alert-icon {
+    color: var(--warning);
+}
+
+.alert-error {
+    background: var(--error-bg);
+    border-color: var(--error-border);
+    color: var(--text-primary);
+}
+
+.alert-error .alert-icon {
+    color: var(--error);
+}
+
+.alert-info {
+    background: var(--info-bg);
+    border-color: var(--info-border);
+    color: var(--text-primary);
+}
+
+.alert-info .alert-icon {
+    color: var(--info);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FORM INPUTS - Accessible Forms
+   ═══════════════════════════════════════════════════════════════════ */
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    background: var(--surface);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+    border-color: var(--border-secondary);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--border-focus);
+    box-shadow: var(--focus-ring);
+    background: var(--surface-2);
+}
+
+/* Input States */
+.form-input.is-valid {
+    border-color: var(--success);
+}
+
+.form-input.is-invalid {
+    border-color: var(--error);
+}
+
+.form-input:disabled {
+    background: var(--bg-tertiary);
+    color: var(--text-dim);
+    cursor: not-allowed;
+}
+
+/* Helper Text */
+.form-help {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-top: 0.375rem;
+}
+
+.form-error {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--error);
+    margin-top: 0.375rem;
+}
+
+/* Checkbox & Radio */
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.form-check-input {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--border-primary);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.form-check-input:checked {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.form-check-input:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+.form-check-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ROUTE INDICATORS - Accessibility Status
+   ═══════════════════════════════════════════════════════════════════ */
+
+.route-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Safe Route */
+.route-safe {
+    background: var(--success-bg);
+    color: var(--success);
+    border: 1px solid var(--success-border);
+}
+
+.route-safe::before {
+    content: "✓";
+    font-size: 1rem;
+}
+
+/* Moderate Route */
+.route-moderate {
+    background: var(--warning-bg);
+    color: var(--warning);
+    border: 1px solid var(--warning-border);
+}
+
+.route-moderate::before {
+    content: "⚠";
+    font-size: 1rem;
+}
+
+/* Risky Route */
+.route-risky {
+    background: var(--error-bg);
+    color: var(--error);
+    border: 1px solid var(--error-border);
+}
+
+.route-risky::before {
+    content: "✕";
+    font-size: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PROGRESS BARS - Accessibility Scores
+   ═══════════════════════════════════════════════════════════════════ */
+
+.progress {
+    width: 100%;
+    height: 0.5rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.6s ease;
+}
+
+.progress-bar-success {
+    background: var(--gradient-success);
+}
+
+.progress-bar-warning {
+    background: var(--gradient-warning);
+}
+
+.progress-bar-error {
+    background: var(--gradient-error);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TOOLTIPS - Contextual Help
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-content {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 0.75rem;
+    background: var(--surface-3);
+    color: var(--text-primary);
+    font-size: 0.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-primary);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+}
+
+.tooltip:hover .tooltip-content,
+.tooltip:focus-within .tooltip-content {
+    opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LOADING STATES
+   ═══════════════════════════════════════════════════════════════════ */
+
+.spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--border-primary);
+    border-top-color: var(--success);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--bg-tertiary) 0%,
+        var(--bg-hover) 50%,
+        var(--bg-tertiary) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: var(--radius-md);
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ACCESSIBILITY SCORE DISPLAY
+   ═══════════════════════════════════════════════════════════════════ */
+
+.score-display {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.score-display::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    padding: 4px;
+    background: var(--gradient-success);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.score-high {
+    background: var(--success-bg);
+    color: var(--success);
+}
+
+.score-high::before {
+    background: var(--gradient-success);
+}
+
+.score-medium {
+    background: var(--warning-bg);
+    color: var(--warning);
+}
+
+.score-medium::before {
+    background: var(--gradient-warning);
+}
+
+.score-low {
+    background: var(--error-bg);
+    color: var(--error);
+}
+
+.score-low::before {
+    background: var(--gradient-error);
+}

@@ -1,0 +1,224 @@
+╔══════════════════════════════════════════════════════════════════╗
+║  DESTINATION-BASED ROUTE FINDING - QUICK GUIDE                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+🎯 HOW IT WORKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. TYPE DESTINATION in search bar
+   Example: "hospital", "park", "metro"
+
+2. CLICK "Find Accessible Routes" button
+
+3. VIEW 3 ROUTES ranked by safety:
+   🥇 SAFEST (Green) - RECOMMENDED
+   🥈 Alternative (Yellow) - Backup
+   🥉 Option 3 (Red) - Use with caution
+
+4. SELECT SAFEST ROUTE (green button)
+
+5. START VOICE NAVIGATION
+
+
+📍 AVAILABLE DESTINATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Search for:
+  🏥 "hospital"    → City General Hospital
+  👮 "police"      → Central Police Station
+  🌳 "park"        → Central Park / Riverside
+  🛍️ "market"      → Market Square
+  🏛️ "heritage"    → Heritage Quarter
+  🚇 "metro"       → Metro Station
+  🛒 "mall"        → Shopping Mall
+  📚 "library"     → Inclusive Library
+  ♿ "support"     → Disability Support Centre
+
+
+🎨 ROUTE COLORS & MEANING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🟢 GREEN (Solid line)
+   Score: 80-100
+   Status: SAFE ✅
+   Recommendation: USE THIS ROUTE
+
+🟡 YELLOW (Dashed line)
+   Score: 60-79
+   Status: MODERATE ⚠️
+   Recommendation: Use with caution
+
+🔴 RED (Dashed line)
+   Score: 0-59
+   Status: RISKY ❌
+   Recommendation: Avoid if possible
+
+
+📊 ROUTE INFORMATION DISPLAYED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Each route shows:
+
+  🥇 RANK
+     RECOMMENDED / Alternative / Option 3
+
+  📏 DISTANCE
+     Example: 2.5 km
+
+  💯 ACCESSIBILITY SCORE
+     0-100 (higher is better)
+
+  🛣️ ROAD CONDITION
+     good / moderate / bad
+
+  ♿ RAMPS
+     Number of wheelchair ramps
+
+  ⚠️ OBSTACLES
+     Number of hazards
+
+
+🎯 EXAMPLE USAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Scenario: Going to Hospital
+
+Step 1: Type "hospital"
+        ↓
+Step 2: Click "Find Accessible Routes"
+        ↓
+Step 3: See 3 routes:
+        
+        🥇 Main Route
+           2.3 km | Score: 95/100 | SAFE
+           Road: good | Ramps: 3 | Obstacles: 0
+           [✅ Use Safest Route]
+        
+        🥈 Alternate Route
+           2.6 km | Score: 78/100 | MODERATE
+           Road: moderate | Ramps: 2 | Obstacles: 1
+           [🗺️ View This Route]
+        
+        🥉 Shortest Route
+           1.9 km | Score: 52/100 | RISKY
+           Road: bad | Ramps: 1 | Obstacles: 2
+           [🗺️ View This Route]
+        ↓
+Step 4: Click "✅ Use Safest Route"
+        ↓
+Step 5: Start voice navigation
+
+
+🔍 WHAT MAKES A ROUTE "SAFE"?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HIGH SCORE (80-100) ✅
+  ✓ Good road condition
+  ✓ Multiple wheelchair ramps
+  ✓ No obstacles
+  ✓ Well-lit paths
+  ✓ Gentle slopes
+  ✓ Audio signals
+  ✓ Rest benches
+
+MEDIUM SCORE (60-79) ⚠️
+  ~ Moderate road condition
+  ~ Some ramps
+  ~ Minor obstacles
+  ~ Adequate lighting
+
+LOW SCORE (<60) ❌
+  ✗ Poor road condition
+  ✗ Few ramps
+  ✗ Multiple obstacles
+  ✗ Poor lighting
+  ✗ Steep slopes
+
+
+♿ USER TYPE OPTIMIZATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+WHEELCHAIR USERS
+  Prioritizes: Ramps, flat surfaces, curb cuts
+  Avoids: Steep slopes, stairs
+
+VISUALLY IMPAIRED
+  Prioritizes: Audio signals, tactile paving
+  Avoids: Complex intersections
+
+ELDERLY USERS
+  Prioritizes: Rest benches, gentle slopes
+  Avoids: Long distances, steep hills
+
+
+🗣️ VOICE NAVIGATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+After selecting route:
+
+1. Scroll to Voice Navigation bar (bottom)
+2. Select route from dropdown
+3. Click "▶ Start" button
+4. Listen to instructions:
+   • Route overview
+   • Turn-by-turn directions
+   • Accessibility alerts
+   • Obstacle warnings
+   • Arrival notification
+
+
+⚡ QUICK TIPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ DO:
+  • Allow location access
+  • Choose safest route (🥇)
+  • Check road conditions
+  • Use voice navigation
+  • Report obstacles
+
+❌ DON'T:
+  • Ignore low scores
+  • Choose risky routes
+  • Travel without checking
+  • Forget to charge phone
+
+
+🔧 TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Problem: No routes found
+Solution: Check spelling, try different destination
+
+Problem: Location not detected
+Solution: Allow browser location access
+
+Problem: All routes low scores
+Solution: Choose highest available, report issues
+
+Problem: Routes not showing
+Solution: Zoom out, refresh page
+
+
+📱 MOBILE USAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• Search bar at top
+• Swipe to scroll routes
+• Tap route to view
+• Tap "Use Safest Route"
+• Map adjusts automatically
+
+
+🎯 SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Search → Find Routes → View 3 Options → Select Safest → Navigate
+
+THE SAFEST ROUTE IS ALWAYS HIGHLIGHTED FIRST! 🎯
+
+
+╔══════════════════════════════════════════════════════════════════╗
+║  REMEMBER: Green = Safe | Yellow = Caution | Red = Risky        ║
+║  ALWAYS choose the 🥇 RECOMMENDED route for safest travel!       ║
+╚══════════════════════════════════════════════════════════════════╝

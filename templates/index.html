@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}AccessRoute — Disability Friendly Route Mapping{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-inner">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Live Route Data
+            </div>
+            <h1 class="hero-title">
+                Navigate the city<br/>
+                <span class="gradient-text">without barriers.</span>
+            </h1>
+            <p class="hero-sub">
+                Real-time accessible routes, obstacle reporting, and community-driven maps — built for wheelchair users, visually impaired individuals, and everyone who needs a smoother path.
+            </p>
+            <div class="hero-actions">
+                <a href="/map" class="btn btn-primary btn-lg">Explore the Map →</a>
+                <a href="/report" class="btn btn-outline btn-lg">Report an Issue</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <div class="stat-card-inner">
+                    <div class="stat-icon icon-green">🗺</div>
+                    <div>
+                        <div class="stat-label">Accessibility Score</div>
+                        <div class="stat-value"><span id="heroScore">—</span></div>
+                        <div class="stat-sub">average across all routes</div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-inner">
+                    <div class="stat-icon icon-blue">♿</div>
+                    <div>
+                        <div class="stat-label">Verified Routes</div>
+                        <div class="stat-value"><span id="heroRoutes">—</span></div>
+                        <div class="stat-sub">mapped &amp; accessibility-scored</div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-inner">
+                    <div class="stat-icon icon-orange">📍</div>
+                    <div>
+                        <div class="stat-label">Accessibility Points</div>
+                        <div class="stat-value"><span id="heroPoints">—</span></div>
+                        <div class="stat-sub">ramps, toilets, benches &amp; more</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="stats-banner">
+    <div class="stats-banner-inner">
+        <div><div class="banner-stat-num" id="b1">—</div><div class="banner-stat-label">Avg. Accessibility Score</div></div>
+        <div><div class="banner-stat-num" id="b2">—</div><div class="banner-stat-label">Verified Routes</div></div>
+        <div><div class="banner-stat-num" id="b3">—</div><div class="banner-stat-label">Accessibility Points</div></div>
+        <div><div class="banner-stat-num" id="b4">—</div><div class="banner-stat-label">Community Reports</div></div>
+    </div>
+</div>
+
+<section class="features">
+    <div class="section-eyebrow">What We Offer</div>
+    <h2 class="section-title">Everything you need<br/><span>to move freely.</span></h2>
+    <p class="section-sub">Built from the ground up for people who rely on accessible infrastructure every single day.</p>
+    <div class="features-grid">
+        <div class="feature-card"><div class="feature-icon-wrap">🛞</div><h3>Wheelchair-Optimized Routes</h3><p>Every route scored for surface quality, gradient, curb cuts, and obstacle clearance — plan with full confidence.</p></div>
+        <div class="feature-card"><div class="feature-icon-wrap">📍</div><h3>Accessibility Point Markers</h3><p>Locate ramps, accessible toilets, rest benches, audio crossing signals, and disabled parking in real time.</p></div>
+        <div class="feature-card"><div class="feature-icon-wrap">🚨</div><h3>Community Issue Reporting</h3><p>Spot a broken ramp? Report it in 60 seconds. Your report helps thousands of others navigate safely.</p></div>
+        <div class="feature-card"><div class="feature-icon-wrap">📊</div><h3>Live Accessibility Scores</h3><p>Routes rated on a 100-point scale, updated in real time as the community reports issues and verifies fixes.</p></div>
+        <div class="feature-card"><div class="feature-icon-wrap">🔊</div><h3>Audio Crossing Signals</h3><p>We map every working audio signal and tactile paving strip to support visually impaired pedestrians.</p></div>
+        <div class="feature-card"><div class="feature-icon-wrap">🤝</div><h3>Community-Powered Data</h3><p>Upvote reports, confirm fixes, and help keep the map accurate. Every contribution shapes an inclusive city.</p></div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="cta-inner">
+        <h2>Found an accessibility barrier?</h2>
+        <p>Your report takes 60 seconds and makes the city more navigable for everyone.</p>
+        <a href="/report" class="btn btn-primary btn-lg">Report an Issue Now →</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+fetch('/api/stats').then(r=>r.json()).then(d=>{
+    document.getElementById('heroScore').textContent = d.avg_accessibility_score+'%';
+    document.getElementById('heroRoutes').textContent = d.total_routes;
+    document.getElementById('heroPoints').textContent = d.total_points;
+    document.getElementById('b1').textContent = d.avg_accessibility_score+'%';
+    document.getElementById('b2').textContent = d.total_routes;
+    document.getElementById('b3').textContent = d.total_points;
+    document.getElementById('b4').textContent = d.total_reports;
+});
+</script>
+{% endblock %}

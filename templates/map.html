@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Accessible Routes Map — AccessRoute{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/smart-panel.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/map-enhancer.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/map-modern.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div class="map-page">
+    <aside class="map-sidebar">
+        <div class="sidebar-header">
+            <h2>Accessible Routes</h2>
+            <div class="search-box">
+                <input type="text" id="routeSearch" placeholder="Search destination or routes…" autocomplete="off" />
+                <span class="search-icon">🔍</span>
+            </div>
+            <div class="destination-search" id="destinationSearch" style="display:none;">
+                <div class="dest-header">
+                    <span class="dest-icon">📍</span>
+                    <div class="dest-info">
+                        <div class="dest-label">Destination Found</div>
+                        <div class="dest-name" id="destName"></div>
+                    </div>
+                    <button class="dest-close" onclick="clearDestinationSearch()">✕</button>
+                </div>
+                <button class="find-routes-btn" onclick="findRoutesToDestination()">🗺️ Find Accessible Routes</button>
+            </div>
+            <div class="tag-filters" id="tagFilters">
+                <button class="tag-btn active" data-tag="">All</button>
+                <button class="tag-btn" data-tag="wheelchair">♿ Wheelchair</button>
+                <button class="tag-btn" data-tag="visual">👁 Visual</button>
+                <button class="tag-btn" data-tag="elderly">🧓 Elderly</button>
+                <button class="tag-btn" data-tag="transit">🚌 Transit</button>
+            </div>
+        </div>
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="routes">Routes</button>
+            <button class="filter-btn" data-filter="points">Points</button>
+            <button class="filter-btn" data-filter="reports">Reports</button>
+        </div>
+        <div class="routes-list" id="routesList">
+            <div class="loading-spinner">Loading routes...</div>
+        </div>
+        <!-- Smart panels will be inserted here dynamically -->
+    </aside>
+    <div class="map-container">
+        <div id="map"></div>
+        <div class="map-controls">
+            <button class="map-ctrl-btn" id="locateMe" title="My Location">📍</button>
+            <button class="map-ctrl-btn" id="resetView" title="Reset View">⌂</button>
+            <button class="map-ctrl-btn" id="refreshReports" title="Refresh Reports">↻</button>
+        </div>
+        <div class="map-status-bar" id="mapStatusBar"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{{ url_for('static', filename='js/route-calculator.js') }}"></script>
+<script src="{{ url_for('static', filename='js/smart-panel.js') }}"></script>
+<script src="{{ url_for('static', filename='js/map-enhancer.js') }}"></script>
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+<script>
+    // Initialize map enhancer after map is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            if (typeof map !== 'undefined') {
+                mapEnhancer = new MapEnhancer(map);
+            }
+        }, 1000);
+    });
+</script>
+{% endblock %}

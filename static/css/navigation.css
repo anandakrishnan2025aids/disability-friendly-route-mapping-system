@@ -1,0 +1,70 @@
+/* Navigation Page Styles */
+
+.custom-marker {
+    background: transparent;
+    border: none;
+}
+
+.route-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.route-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#map {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.leaflet-popup-content {
+    font-size: 14px;
+}
+
+#voiceControls button {
+    transition: all 0.2s ease;
+}
+
+#voiceControls button:hover {
+    transform: scale(1.05);
+}
+
+.alert {
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Accessibility Features */
+.badge {
+    font-size: 0.85rem;
+    padding: 0.4em 0.6em;
+}
+
+#nearbyFacilities small {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #map {
+        height: 400px !important;
+    }
+    
+    .col-md-3, .col-md-9 {
+        margin-bottom: 1rem;
+    }
+}
